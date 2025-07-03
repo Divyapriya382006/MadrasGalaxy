@@ -71,6 +71,8 @@ function App() {
 
   if (isLoading) {
     return (
+      <div className="min-h-screen bg-gradient-to-b from-gray-900 via-blue-900 to-purple-900 relative overflow-hidden perspective-wrapper">
+  <div className="parallax-layer"></div>
       <div className="min-h-screen bg-gradient-to-b from-gray-900 via-blue-900 to-purple-900 flex items-center justify-center relative overflow-hidden">
         <EnhancedBackground />
         <div className="text-center relative z-10">
@@ -200,6 +202,7 @@ function App() {
         </ForceField>
       </footer>
     </div>
+        </div>
   );
 }
 
