@@ -12,6 +12,32 @@
   }
 }
 
+.perspective-wrapper {
+  perspective: 1000px;
+  overflow: hidden;
+  position: relative;
+}
+
+.parallax-layer {
+  position: absolute;
+  width: 150%;
+  height: 150%;
+  top: -25%;
+  left: -25%;
+  background: radial-gradient(circle, rgba(251,191,36,0.1), transparent 70%);
+  animation: parallax-move 10s infinite alternate ease-in-out;
+}
+
+@keyframes parallax-move {
+  0% {
+    transform: translateZ(-300px) rotateX(15deg) rotateY(-15deg);
+  }
+  100% {
+    transform: translateZ(-300px) rotateX(-15deg) rotateY(15deg);
+  }
+}
+
+
 @keyframes glow {
   0% {
     box-shadow: 0 0 20px currentColor, 0 0 40px currentColor;
