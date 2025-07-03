@@ -6,7 +6,6 @@ import AreasGrid from './components/AreasGrid';
 import FoodSpots from './components/FoodSpots';
 import AttractionsGrid from './components/AttractionsGrid';
 import Lightsaber from './components/Lightsaber';
-import WeatherWidget from './components/WeatherWidget';
 import AIAssistant from './components/AIAssistant';
 import EnhancedBackground from './components/EnhancedBackground';
 import ForceField from './components/ForceField';
@@ -143,11 +142,6 @@ function App() {
       {/* Floating Lightsabers */}
       <Lightsaber side="left" />
       <Lightsaber side="right" />
-
-      {/* Weather Widget - Fixed Position */}
-      <div className="fixed top-4 left-4 z-40 max-w-sm">
-        <WeatherWidget />
-      </div>
 
       {/* Header */}
       <header className="relative z-10 text-center py-8 px-4">
