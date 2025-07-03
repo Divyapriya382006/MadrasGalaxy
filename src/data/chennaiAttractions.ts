@@ -2550,4 +2550,3 @@ export const chennaiAttractions = {
 };
 
 export default chennaiAttractions;
-```
