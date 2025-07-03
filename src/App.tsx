@@ -27,6 +27,8 @@ function App() {
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(true);
 
+  const [order66Activated, setOrder66Activated] = useState(false);
+
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsLoading(false);
@@ -69,31 +71,38 @@ function App() {
     setCurrentView('attractions');
   };
 
+  const handleSecretCode = (input: string) => {
+    if (input.trim().toLowerCase() === 'order 66') {
+      setOrder66Activated(true);
+    }
+  };
+
   if (isLoading) {
     return (
       <div className="min-h-screen bg-gradient-to-b from-gray-900 via-blue-900 to-purple-900 relative overflow-hidden perspective-wrapper">
-  <div className="parallax-layer"></div>
-      <div className="min-h-screen bg-gradient-to-b from-gray-900 via-blue-900 to-purple-900 flex items-center justify-center relative overflow-hidden">
-        <EnhancedBackground />
-        <div className="text-center relative z-10">
-          <div className="relative mb-8">
-            <div className="animate-spin rounded-full h-32 w-32 border-t-4 border-b-4 border-yellow-400 mx-auto"></div>
-            <div className="absolute inset-0 flex items-center justify-center">
-              <Sparkles className="w-8 h-8 text-yellow-400 animate-pulse" />
+        <div className="parallax-layer"></div>
+        <div className="min-h-screen flex items-center justify-center relative overflow-hidden">
+          <EnhancedBackground />
+          <div className="text-center relative z-10">
+            <div className="relative mb-8">
+              <div className="animate-spin rounded-full h-32 w-32 border-t-4 border-b-4 border-yellow-400 mx-auto"></div>
+              <div className="absolute inset-0 flex items-center justify-center">
+                <Sparkles className="w-8 h-8 text-yellow-400 animate-pulse" />
+              </div>
             </div>
-          </div>
-          <h1 className="text-5xl font-bold text-yellow-400 mb-4 animate-pulse tracking-wider">
-            INITIALIZING HYPERDRIVE...
-          </h1>
-          <p className="text-blue-200 text-lg mb-4">Connecting to the Chennai Galaxy</p>
-          <div className="flex justify-center space-x-2">
-            {[...Array(3)].map((_, i) => (
-              <div
-                key={i}
-                className="w-3 h-3 bg-yellow-400 rounded-full animate-bounce"
-                style={{ animationDelay: `${i * 0.2}s` }}
-              />
-            ))}
+            <h1 className="text-5xl font-bold text-yellow-400 mb-4 animate-pulse tracking-wider">
+              INITIALIZING HYPERDRIVE...
+            </h1>
+            <p className="text-blue-200 text-lg mb-4">Connecting to the Chennai Galaxy</p>
+            <div className="flex justify-center space-x-2">
+              {[...Array(3)].map((_, i) => (
+                <div
+                  key={i}
+                  className="w-3 h-3 bg-yellow-400 rounded-full animate-bounce"
+                  style={{ animationDelay: `${i * 0.2}s` }}
+                />
+              ))}
+            </div>
           </div>
         </div>
       </div>
@@ -181,6 +190,13 @@ function App() {
       {/* AI Assistant */}
       <AIAssistant preferences={preferences} />
 
+      {/* Easter Egg Overlay */}
+      {order66Activated && (
+        <div className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-90 text-red-600 text-4xl font-extrabold">
+          EXECUTING ORDER 66 ⚠️
+        </div>
+      )}
+
       {/* Footer */}
       <footer className="relative z-10 text-center py-8 mt-16">
         <ForceField className="max-w-2xl mx-auto p-6">
@@ -202,7 +218,6 @@ function App() {
         </ForceField>
       </footer>
     </div>
-        </div>
   );
 }
 
